@@ -98,6 +98,27 @@ class LinkedList {
     }
     return `${output} null`;
   }
+
+  insertAt(value, index) {
+    // boundaries  checking
+    if (index < 0) throw new Error('Out of range');
+    if (!this.head) this.prepend(value);
+    else if (index === 0) this.prepend(value);
+    else if (index > this.length - 1) this.append(value);
+    else {
+      // insert it at the requested index or at the end if index to big
+      let current = this.head;
+      let prev = null;
+      for (let i = 0; i < index; i++) {
+        prev = current;
+        current = current.nextNode;
+        // if (!current) break;
+      }
+      const node = new Node(value, current);
+      prev.nextNode = node;
+      this.length++;
+    }
+  }
 }
 
 module.exports = LinkedList;
