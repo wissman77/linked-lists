@@ -57,6 +57,19 @@ class LinkedList {
     }
     return null;
   }
+
+  pop() {
+    // keep track of previous node to update it's nextNode as null
+    let current = this.head;
+    let prev = null;
+    while (current.nextNode) {
+      prev = current;
+      current = current.nextNode;
+    }
+    prev.nextNode = null;
+    this.length--;
+    return current;
+  }
 }
 
 module.exports = LinkedList;
