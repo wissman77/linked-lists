@@ -70,6 +70,24 @@ class LinkedList {
     this.length--;
     return current;
   }
+
+  contains(value) {
+    let current = this.head;
+    for (let index = 0; index < this.length; index++) {
+      if (current.value === value) return true;
+      current = current.nextNode;
+    }
+    return false;
+  }
+
+  find(value) {
+    let current = this.head;
+    for (let index = 0; index < this.length; index++) {
+      if (current.value === value) return index;
+      current = current.nextNode;
+    }
+    return null;
+  }
 }
 
 module.exports = LinkedList;
