@@ -44,6 +44,19 @@ class LinkedList {
     // the tail with nodeNext = null
     return current;
   }
+
+  at(index) {
+    // boundaries
+    if (index < 0 || index > this.length - 1) {
+      return null;
+    }
+    let current = this.head;
+    for (let i = 0; i < this.length; i++) {
+      if (index === i) return current;
+      current = current.nextNode;
+    }
+    return null;
+  }
 }
 
 module.exports = LinkedList;
