@@ -119,6 +119,27 @@ class LinkedList {
       this.length++;
     }
   }
+
+  removeAt(index) {
+    // boundaries  checking
+    if (index < 0 || index > this.length - 1) throw new Error('Out of range');
+    if (this.length === 0)
+      throw new Error('linked list is empty, nothing to remove.');
+    if (index === 0) {
+      // remove first node by changing the head for the next node
+      this.head = this.head.nextNode;
+      this.length--;
+    } else {
+      let current = this.head;
+      let prev = null;
+      for (let i = 0; i < index; i++) {
+        prev = current;
+        current = current.nextNode;
+      }
+      prev.nextNode = current.nextNode;
+      this.length--;
+    }
+  }
 }
 
 module.exports = LinkedList;
