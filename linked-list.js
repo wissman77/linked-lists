@@ -21,6 +21,12 @@ class LinkedList {
     }
     this.length++;
   }
+
+  prepend(value) {
+    const node = new Node(value, this.head);
+    this.head = node;
+    this.length++;
+  }
 }
 
 module.exports = LinkedList;
