@@ -88,6 +88,16 @@ class LinkedList {
     }
     return null;
   }
+
+  toString() {
+    let output = '';
+    let current = this.head;
+    for (let i = 0; i < this.length; i++) {
+      output += `( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+    return `${output} null`;
+  }
 }
 
 module.exports = LinkedList;
